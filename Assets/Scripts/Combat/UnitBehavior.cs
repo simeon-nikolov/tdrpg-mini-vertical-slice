@@ -6,29 +6,49 @@ public class UnitBehavior : MonoBehaviour
 
     private AutoAttacker autoAttacker;
     private Transform target;
+    private Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         autoAttacker = GetComponent<AutoAttacker>();
     }
 
     private void Update()
     {
-        if (autoAttacker == null)
+        if (autoAttacker == null || autoAttacker.target == null)
+        {
+            StopWalking();
             return;
+        }
 
         target = autoAttacker.target;
-
-        if (target == null)
-            return;
-
         float distance = Vector3.Distance(transform.position, target.position);
 
         if (distance > autoAttacker.attackRange)
         {
-            // Move toward the target
-            Vector3 direction = (target.position - transform.position).normalized;
-            transform.position += moveSpeed * Time.deltaTime * direction;
+            MoveTowardTarget(distance);
         }
+        else
+        {
+            StopWalking();
+        }
+    }
+
+    private void MoveTowardTarget(float distance)
+    {
+        StartWalking();
+        Vector3 direction = (target.position - transform.position).normalized;
+        transform.position += moveSpeed * Time.deltaTime * direction;
+    }
+
+    void StartWalking()
+    {
+        animator.SetBool(AnimatorConstants.WALKING_PARAM, true);
+    }
+
+    void StopWalking()
+    {
+        animator.SetBool(AnimatorConstants.WALKING_PARAM, false);
     }
 }

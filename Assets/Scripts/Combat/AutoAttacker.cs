@@ -6,8 +6,14 @@ public class AutoAttacker : MonoBehaviour
     public int attackDamage = 10;
     public float attackRange = 1.5f;
     public Transform target;
+    private Animator animator;
 
-    private float attackTimer;
+    private float attackTimer = 1.9f;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -20,17 +26,23 @@ public class AutoAttacker : MonoBehaviour
 
         if (distance <= attackRange)
         {
-            attackTimer += Time.deltaTime;
-
-            if (attackTimer >= attackInterval)
-            {
-                attackTimer = 0f;
-                Attack();
-            }
+            TickAutoAttack();
         }
         else
         {
+            //attackTimer = 1.9f;
+        }
+    }
+
+    void TickAutoAttack()
+    {
+        attackTimer += Time.deltaTime;
+
+        if (attackTimer >= attackInterval)
+        {
+            Debug.Log("Name: " + gameObject.name + ", Attack - timer: " + attackTimer);
             attackTimer = 0f;
+            Attack();
         }
     }
 
@@ -39,6 +51,7 @@ public class AutoAttacker : MonoBehaviour
         Health enemyHealth = target.GetComponent<Health>();
         if (enemyHealth != null)
         {
+            animator.SetTrigger(AnimatorConstants.ATTACK_TRIGGER);
             enemyHealth.TakeDamage(attackDamage);
         }
     }
