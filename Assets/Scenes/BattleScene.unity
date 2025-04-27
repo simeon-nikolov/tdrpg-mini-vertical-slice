@@ -298,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackInterval: 2
   attackDamage: 10
+  attackRange: 1.5
   target: {fileID: 1931058320}
 --- !u!114 &210426880
 MonoBehaviour:
@@ -601,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4684403152539725594, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4684403152539725594, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalRotation.w
@@ -910,6 +911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackInterval: 2
   attackDamage: 10
+  attackRange: 1.5
   target: {fileID: 210426878}
 --- !u!114 &1931058322
 MonoBehaviour:

@@ -4,20 +4,33 @@ public class AutoAttacker : MonoBehaviour
 {
     public float attackInterval = 2f;
     public int attackDamage = 10;
+    public float attackRange = 1.5f;
     public Transform target;
 
     private float attackTimer;
 
     void Update()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            return;
+        }
 
-        attackTimer += Time.deltaTime;
+        float distance = Vector3.Distance(transform.position, target.position);
 
-        if (attackTimer >= attackInterval)
+        if (distance <= attackRange)
+        {
+            attackTimer += Time.deltaTime;
+
+            if (attackTimer >= attackInterval)
+            {
+                attackTimer = 0f;
+                Attack();
+            }
+        }
+        else
         {
             attackTimer = 0f;
-            Attack();
         }
     }
 
