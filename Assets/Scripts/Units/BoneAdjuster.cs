@@ -7,8 +7,8 @@ public class BoneAdjuster : MonoBehaviour
     public Animator animator;
 
     [Header("Offsets")]
-    public Vector3 walkingUpperArmOffset = new Vector3(0, 0, -45);
-    public Vector3 walkingHandOffset = new Vector3(-15, 0, 0);
+    public Vector3 walkingUpperArmOffset = new Vector3(0, 305, 18);
+    public Vector3 walkingHandOffset = new Vector3(275, 90, 270);
     public Vector3 idleUpperArmOffset = new Vector3(0, 0, 0);
     public Vector3 idleHandOffset = new Vector3(0, 0, 0);
 
@@ -54,6 +54,6 @@ public class BoneAdjuster : MonoBehaviour
 
         // 4. Apply the offset
         upperArmBone.localEulerAngles = baseUpperArmRotation + currentUpperArmOffset;
-        handBone.localEulerAngles = baseHandRotation + currentHandOffset;
+        handBone.localEulerAngles = baseUpperArmRotation + currentUpperArmOffset;
     }
 }

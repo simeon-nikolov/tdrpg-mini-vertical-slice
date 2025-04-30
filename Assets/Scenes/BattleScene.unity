@@ -354,8 +354,8 @@ MonoBehaviour:
   upperArmBone: {fileID: 1200598815}
   handBone: {fileID: 1115760652}
   animator: {fileID: 0}
-  walkingUpperArmOffset: {x: 0, y: 0, z: -45}
-  walkingHandOffset: {x: -10, y: 0, z: 0}
+  walkingUpperArmOffset: {x: 0, y: 305, z: 18}
+  walkingHandOffset: {x: 275, y: 90, z: 270}
   idleUpperArmOffset: {x: 0, y: 0, z: 0}
   idleHandOffset: {x: 0, y: 0, z: 0}
   blendSpeed: 5
@@ -647,19 +647,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1638128140702738179, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99200505
+      value: -0.8790092
       objectReference: {fileID: 0}
     - target: {fileID: 1638128140702738179, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0118983
+      value: 0.07404649
       objectReference: {fileID: 0}
     - target: {fileID: 1638128140702738179, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.10369235
+      value: 0.44806015
       objectReference: {fileID: 0}
     - target: {fileID: 1638128140702738179, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.07093916
+      value: -0.14526545
       objectReference: {fileID: 0}
     - target: {fileID: 1638128140702738179, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -715,11 +715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1867891055556171973, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.026096016
+      value: 0.026095122
       objectReference: {fileID: 0}
     - target: {fileID: 1867891055556171973, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.026096016
+      value: -0.026095122
       objectReference: {fileID: 0}
     - target: {fileID: 1867891055556171973, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -809,6 +809,54 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 210426884}
   m_SourcePrefab: {fileID: 100100000, guid: c564c8c0d0cdc45429417f315e9f3e41, type: 3}
+--- !u!1 &478450373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 478450375}
+  - component: {fileID: 478450374}
+  m_Layer: 0
+  m_Name: BoneTuner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &478450374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478450373}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b169be26152c4f4fa78815e61c2621f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upperArmBone: {fileID: 1200598815}
+  handBone: {fileID: 1115760652}
+  upperArmRotationOffset: {x: 0, y: 0, z: 0}
+  handRotationOffset: {x: 0, y: 0, z: 0}
+--- !u!4 &478450375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478450373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.130259, y: 0.35263035, z: -0.19949941}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765269547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1259,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 211060118000718597, guid: a8cc610235c43164cb7d9665673d0322, type: 3}
   m_PrefabInstance: {fileID: 1485543198}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1888905609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1888905611}
+  - component: {fileID: 1888905610}
+  m_Layer: 0
+  m_Name: BoneTunerAdvanced
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1888905610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888905609}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a251f75005d51468c0d3a347ed40eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upperArmBone: {fileID: 0}
+  handBone: {fileID: 0}
+  upperArmRotationOffset: {x: 0, y: 0, z: 0}
+  handRotationOffset: {x: 0, y: 0, z: 0}
+  initialUpperArmRotation: {x: 0.000011099058, y: 305.9811, z: 18.76782}
+  initialHandRotation: {x: 274.22986, y: 90, z: 270}
+--- !u!4 &1888905611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888905609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.130259, y: 0.35263035, z: -0.19949941}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1931058318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1696834749189059949, guid: 4a46e821c58b5cd42b14eaab6d197266, type: 3}
@@ -1289,3 +1387,5 @@ SceneRoots:
   - {fileID: 959024142}
   - {fileID: 187757301}
   - {fileID: 1041103795}
+  - {fileID: 478450375}
+  - {fileID: 1888905611}
