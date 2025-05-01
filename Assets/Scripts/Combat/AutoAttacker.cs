@@ -40,7 +40,6 @@ public class AutoAttacker : MonoBehaviour
 
         if (attackTimer >= attackInterval)
         {
-            Debug.Log("Name: " + gameObject.name + ", Attack - timer: " + attackTimer);
             attackTimer = 0f;
             Attack();
         }
