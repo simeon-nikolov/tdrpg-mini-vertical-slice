@@ -1,38 +1,43 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public GameObject healthBarPrefab;
     public int maxHealth = 100;
     private int currentHealth;
-    private HealthBarUI healthBarUI;
-    private GameObject healthBarGameObject;
+    public Image fillImage;
+    public GameObject healthBarGO;
 
     void Start()
     {
         currentHealth = maxHealth;
-        healthBarGameObject = Instantiate(healthBarPrefab);
-        healthBarUI = healthBarGameObject.GetComponent<HealthBarUI>();
-        healthBarUI.target = transform;
-        healthBarUI.SetHealth(currentHealth, maxHealth);
+    }
+
+    void LateUpdate()
+    {
+        this.healthBarGO.transform.rotation = Quaternion.Euler(45, 270, 0);
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBarUI.SetHealth(currentHealth, maxHealth);
+        this.SetHealthBar(currentHealth);
         Debug.Log($"{gameObject.name} took {damage} damage. Remaining HP: {currentHealth}");
 
         if (currentHealth <= 0)
         {
-            Die();
+            this.Die();
         }
+    }
+
+    public void SetHealthBar(float current)
+    {
+        this.fillImage.fillAmount = current / this.maxHealth;
     }
 
     void Die()
     {
         Debug.Log($"{gameObject.name} has died!");
-        Destroy(gameObject);
-        Destroy(healthBarGameObject);
+        Destroy(this.gameObject);
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HeroWalkingAdjuster : MonoBehaviour
+public class WalkingAdjuster : MonoBehaviour
 {
     public Transform upperArmBone;
     public Transform lowerArmBone;
