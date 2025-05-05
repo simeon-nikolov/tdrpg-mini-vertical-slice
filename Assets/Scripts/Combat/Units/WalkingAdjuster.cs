@@ -14,19 +14,19 @@ public class WalkingAdjuster : MonoBehaviour
 
     void Start()
     {
-        animator = gameObject.GetComponent<Animator>();
+        this.animator = gameObject.GetComponent<Animator>();
     }
 
     void LateUpdate()
     {
-        if (upperArmBone == null || handBone == null || animator == null)
+        if (this.upperArmBone == null || this.handBone == null || this.animator == null)
             return;
 
         if (animator.GetBool(AnimatorConstants.WALKING_PARAM))
         {
-            upperArmBone.localEulerAngles = upperArmOffset;
-            lowerArmBone.localEulerAngles = lowerArmOffset;
-            handBone.localEulerAngles = handOffset;
+            this.upperArmBone.localEulerAngles = upperArmOffset;
+            this.lowerArmBone.localEulerAngles = lowerArmOffset;
+            this.handBone.localEulerAngles = handOffset;
         }
     }
 }
