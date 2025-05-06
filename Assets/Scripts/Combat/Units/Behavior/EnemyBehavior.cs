@@ -9,7 +9,11 @@ public class EnemyBehavior : Behavior
     {
         if (this.autoAttacker == null || this.autoAttacker.target == null)
         {
-            this.MoveRight();
+            if (this.IsMeleeRange())
+            {
+
+                this.MoveRight();
+            }
             return;
         }
 
@@ -23,6 +27,12 @@ public class EnemyBehavior : Behavior
         {
             this.StopWalking();
         }
+    }
+
+    private bool IsMeleeRange()
+    {
+        var unitType = this.unitAttributes.unitType;
+        return unitType == UnitTypes.Fighter || unitType == UnitTypes.Knight;
     }
 
     private void MoveRight()
