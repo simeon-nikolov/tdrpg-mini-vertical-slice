@@ -6,9 +6,12 @@ public class UnitBehavior : MonoBehaviour
     private Animator animator;
     private UnitAttributes unitAttributes;
     private Behavior behavior;
+    private GameManager gameManager;
 
     private void Start()
     {
+        var gameManagerGameObject = GameObject.FindGameObjectWithTag(Tags.GAME_MANAGER);
+        this.gameManager = gameManagerGameObject.GetComponent<GameManager>();
         this.unitAttributes = GetComponent<UnitAttributes>();
         this.animator = GetComponent<Animator>();
         this.autoAttacker = GetComponent<AutoAttacker>();
@@ -17,7 +20,13 @@ public class UnitBehavior : MonoBehaviour
 
     private void Update()
     {
-        this.behavior.RunBehavior();
+        if (this.gameManager.IsGameOver)
+        {
+            this.behavior?.StopWalking();
+            return;
+        }
+
+        this.behavior?.RunBehavior();
     }
 
     private Behavior GetBehaviorByUnitType()

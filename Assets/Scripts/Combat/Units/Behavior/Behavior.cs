@@ -17,19 +17,19 @@ public abstract class Behavior
 
     abstract public void RunBehavior();
 
-    protected void MoveTowardTarget()
+    public void MoveTowardTarget()
     {
         this.StartWalking();
         Vector3 direction = (this.autoAttacker.target.position - this.transform.position).normalized;
         this.transform.position += this.unitAttributes.moveSpeed * Time.deltaTime * direction;
     }
 
-    protected void StartWalking()
+    public void StartWalking()
     {
         this.animator.SetBool(AnimatorConstants.WALKING_PARAM, true);
     }
 
-    protected void StopWalking()
+    public void StopWalking()
     {
         this.animator.SetBool(AnimatorConstants.WALKING_PARAM, false);
     }

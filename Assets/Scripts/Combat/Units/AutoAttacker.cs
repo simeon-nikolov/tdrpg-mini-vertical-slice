@@ -5,6 +5,7 @@ public class AutoAttacker : MonoBehaviour
     public Transform target;
     private Animator animator;
     private UnitAttributes unitAttributes;
+    private bool isAttackAnimationTriggered = false;
 
     private float attackTimer = 1.9f;
 
@@ -33,13 +34,26 @@ public class AutoAttacker : MonoBehaviour
         }
     }
 
+    private bool ShouldTriggerAttackAnimation(float attackInterval)
+    {
+        return !this.isAttackAnimationTriggered && attackInterval - this.attackTimer < 0.2;
+    }
+
     void TickAutoAttack()
     {
         this.attackTimer += Time.deltaTime;
+        float attackInterval = this.unitAttributes.attackInterval;
 
-        if (this.attackTimer >= this.unitAttributes.attackInterval)
+        if (this.ShouldTriggerAttackAnimation(attackInterval))
+        {
+            this.isAttackAnimationTriggered = true;
+            this.animator.SetTrigger(AnimatorConstants.ATTACK_TRIGGER);
+        }
+
+        if (this.attackTimer >= attackInterval)
         {
             this.attackTimer = 0f;
+            this.isAttackAnimationTriggered = false;
             this.Attack();
         }
     }
@@ -49,7 +63,6 @@ public class AutoAttacker : MonoBehaviour
         Health enemyHealth = this.target.GetComponent<Health>();
         if (enemyHealth != null)
         {
-            this.animator.SetTrigger(AnimatorConstants.ATTACK_TRIGGER);
             enemyHealth.TakeDamage(this.unitAttributes.attackDamage);
         }
     }
