@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         this.IsGameOver = true;
         bool isVictorious = this.gameState == GameStates.Won;
         DelayUtils.Invoke(this, () => this.endScreen.gameObject.SetActive(true), 0.5f);
-        this.outcomeText.text = isVictorious ? "Victory!" : "Game Over!";
+        this.outcomeText.text = isVictorious ? "Victory!" : "Defeated!";
         this.outcomeText.color = isVictorious ? winColor : loseColor;
 
     }
