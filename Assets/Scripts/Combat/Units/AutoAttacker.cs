@@ -34,6 +34,11 @@ public class AutoAttacker : MonoBehaviour
         }
     }
 
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
     private bool ShouldTriggerAttackAnimation(float attackInterval)
     {
         return !this.isAttackAnimationTriggered && attackInterval - this.attackTimer < 0.2;

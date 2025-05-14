@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             this.gameState = GameStates.Lost;
             this.GameOver();
-            Debug.Log("You lost!");
+            Debug.Log("Defeated!");
         }
     }
 
