@@ -13,7 +13,7 @@ public class HeroTargetController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (this.IsLeftMouseButtonClicked())
         {
             Ray ray = this.mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
@@ -29,11 +29,15 @@ public class HeroTargetController : MonoBehaviour
                     else if (clickedUnit.unitTag == UnitTags.Enemy && this.selectedHero != null)
                     {
                         this.selectedHero.SetTarget(hit.transform);
-                        //this.selectedHero = null;
                     }
                 }
             }
         }
+    }
+
+    private bool IsLeftMouseButtonClicked()
+    {
+        return Input.GetMouseButtonDown(0);
     }
 
     private void SelectHero(UnitAttributes clickedUnit)
