@@ -5,7 +5,6 @@ public class HeroTargetController : MonoBehaviour
     private Camera mainCamera;
     private AutoAttacker selectedHero;
 
-
     void Start()
     {
         this.mainCamera = Camera.main;
